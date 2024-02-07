@@ -1,5 +1,6 @@
 {
 	"devDependencies": {
+		"browser-sync": "^3.0.2",
 		"gulp": "^4.0.2",
 		"gulp-autoprefixer": "^9.0.0",
 		"gulp-sass": "^5.1.0",
@@ -9,9 +10,16 @@
 	"browserslist": [
 		"defaults"
 	],
+	"scripts": {
+		"dev": "gulp",
+		"start": "gulp server",
+		"build": "gulp build"
+	},
 	"name": "wjs-recruitment",
+	"type": "module",
 	"version": "1.0.0",
 	"main": "script.js",
 	"author": "Jacob Chodubski",
-	"license": "MIT"
+	"license": "MIT",
+	"dependencies": {}
 }

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="css/style.css" />
+		<script type="module" src="js/terminal.js" defer></script>
+		<title>Terminal</title>
+	</head>
+	<body class="page">
+		<dialog class="window" id="terminal" open="true">
+			<header class="window-header">
+				<div class="window-option-bar">
+					<button class="window-option-bar__btn window-option-bar__btn--close"></button>
+					<button class="window-option-bar__btn window-option-bar__btn--min"></button>
+					<button class="window-option-bar__btn window-option-bar__btn--max"></button>
+				</div>
+				<h1 class="window-header__title">webjaksklep</h1>
+			</header>
+			<section class="window-content">
+				<div class="output">
+					<div class="msg-box"></div>
+					<div class="input-area">
+						<input class="input-area__input" type="text" />
+						<div class="hint-cnt"></div>
+					</div>
+				</div>
+			</section>
+		</dialog>
+	</body>
+</html>

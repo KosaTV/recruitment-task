@@ -1,0 +1,153 @@
+@use "mixins" as mix;
+
+.window {
+	position: fixed;
+	@include mix.box(90%, 300px);
+	@include mix.flex-column;
+	min-width: 200px;
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
+	padding: 0;
+	border: none;
+	border-radius: 10px;
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+
+	@include mix.tablet {
+		@include mix.box(726px, 374px);
+	}
+
+	@include mix.large {
+		@include mix.box(1000px, 515px);
+	}
+}
+
+.window-header {
+	position: relative;
+	@include mix.flex-center;
+	text-align: center;
+	min-height: 20px;
+	color: #c2c2c2;
+	background: #3e3e3e;
+
+	&__title {
+		@include mix.font-size(11);
+		pointer-events: none;
+		user-select: none;
+		font-weight: 600;
+		font-family: "Inter", sans-serif;
+		margin: 0;
+	}
+}
+
+.window-option-bar {
+	@include mix.flex-center;
+	position: absolute;
+	left: 10px;
+	&__btn {
+		@include mix.box(10px);
+		display: block;
+		border: none;
+		margin: 2.5px;
+		border-radius: 50%;
+		cursor: pointer;
+
+		&--close {
+			background: #e52a2a;
+		}
+
+		&--min {
+			background: #e5bc2a;
+		}
+
+		&--max {
+			background: #2ae53d;
+		}
+	}
+}
+
+.window-content {
+	@include mix.flex-center(flex-start, flex-start);
+	@include mix.font-size(12);
+	font-family: "Roboto Mono", monospace;
+	font-weight: 500;
+	background: black;
+	flex: 1;
+	overflow: hidden;
+	color: white;
+}
+
+.output {
+	@include mix.flex-column;
+	$bg-color: #131212;
+	flex: 1;
+	height: 100%;
+	box-sizing: border-box;
+	position: relative;
+	padding: 24px;
+	padding-bottom: 0;
+	overflow-y: auto;
+	background: $bg-color;
+
+	*::selection {
+		background: white;
+		color: $bg-color;
+	}
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+.msg-box {
+	@include mix.flex-column;
+	gap: 15px;
+	padding-bottom: 80px;
+}
+
+.input-area {
+	@include mix.flex-column;
+	position: fixed;
+	bottom: 0;
+	width: calc(100% - 40px);
+	height: 64px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	background: #131212;
+
+	&__input {
+		@include mix.font-size(18);
+		font-family: "Roboto Mono", monospace;
+		border-radius: 5px;
+		font-weight: 500;
+		padding: 10px;
+		outline: none;
+		color: white;
+		border: none;
+		width: 100%;
+		background: #3e3e3e;
+	}
+}
+
+.hint-cnt {
+	overflow-y: auto;
+	flex: 1;
+	user-select: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+
+	&__hint {
+		@include mix.font-size(10);
+		margin: 6px;
+		color: #aaa;
+		border-radius: 4px;
+
+		&--focused {
+			background: white;
+			color: #3e3e3e;
+		}
+	}
+}

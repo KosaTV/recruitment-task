@@ -1,0 +1,22 @@
+@use "app";
+@use "menu";
+@use "search";
+@use "window";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Roboto+Mono:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+
+* {
+	&,
+	&:before,
+	&:before {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+}
+
+.page {
+	position: relative;
+	margin: 0;
+	font-family: "Arial", sans-serif;
+}

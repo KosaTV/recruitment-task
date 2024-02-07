@@ -1,0 +1,75 @@
+$tablet: 768;
+$large: 1024;
+$desktop: 1280;
+
+@mixin tablet {
+	@media only screen and (min-width: $tablet * 1px) {
+		@content;
+	}
+}
+
+@mixin pseudo($width: 100%, $height: 100%, $display: inline-block, $pos: absolute, $content: "") {
+	content: $content;
+	display: $display;
+	position: $pos;
+	@include box($width, $height);
+}
+
+@mixin large {
+	@media only screen and (min-width: $large * 1px) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media only screen and (min-width: $desktop * 1px) {
+		@content;
+	}
+}
+
+@mixin font-size($font-size, $line-height: normal, $letter-spacing: normal) {
+	font-size: $font-size * 1px;
+
+	@if $line-height==normal {
+		line-height: normal;
+	} @else {
+		line-height: $line-height / $font-size;
+	}
+
+	@if $letter-spacing==normal {
+		letter-spacing: normal;
+	} @else {
+		letter-spacing: #{$letter-spacing / $font-size}em;
+	}
+}
+
+@mixin box($width, $height: $width) {
+	width: $width;
+	height: $height;
+}
+
+@mixin flex-column {
+	display: flex;
+	flex-direction: column;
+}
+
+@mixin flex-center($pos1: center, $pos2: center) {
+	display: flex;
+	justify-content: $pos1;
+	align-items: $pos2;
+}
+
+@mixin flex-center-column {
+	@include flex-center;
+	flex-direction: column;
+}
+
+@mixin flex-center-vert {
+	display: flex;
+	align-items: center;
+}
+
+@mixin flex-center-horiz {
+	display: flex;
+	justify-content: center;
+}
